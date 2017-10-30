@@ -2,7 +2,7 @@
 progressive-video-player - default skin plugin
 
 ## Usage
-### Load library
+### Load modules
 The player consists of a core and plugin modules. For the core module to work, at least a video and skin plugins are necessary.
 ```html
 <!-- Player core -->
