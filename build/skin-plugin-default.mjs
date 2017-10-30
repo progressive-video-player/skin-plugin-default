@@ -21,15 +21,25 @@ class SkinPlugin extends HTMLElement {
   }
 
   initSkin(container) {
-    console.log(`==> SkinPlugin.initSkin() container: ${container}`);
+    // console.log(`==> SkinPlugin.initSkin() container: ${container}`);
     const shadowRoot = container.attachShadow({mode: 'open'});
     const div = document.createElement('div');
     shadowRoot.appendChild(div);
   }
 
   deinitSkin() {
-    console.log(`==> SkinPlugin.deinitSkin()`);
+    // console.log(`==> SkinPlugin.deinitSkin()`);
   }
 }
 
-window.customElements.define('skin-plugin-default', SkinPlugin);
+if (!customElements) {
+  throw new Error('Custom Elements not supported');
+}
+
+const name = 'skin-plugin-default';
+
+if (customElements.get(name)) {
+  console.log(`Custom element "${name}" already defined`);
+} else {
+  customElements.define(name, SkinPlugin);
+}
